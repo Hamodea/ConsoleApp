@@ -44,11 +44,7 @@
             Console.Write("Enter a letter: ");
             char guessedLetter = Console.ReadLine()[0];
             bool isCorrectGuess = false;
-            if (guessedLetters == null || guessedLetters.Length == 0)
-            {
-                Console.WriteLine("invaild input. Tru again");
-
-            }
+  
             for (int i = 0; i < selectedWord.Length; i++)
             {
                 if (selectedWord[i] == guessedLetter)
@@ -61,11 +57,19 @@
             {
                 nbrofGuesses--;
                 Console.WriteLine("Wrong guess! You have " + nbrofGuesses + " tries left.");
+
+                if (nbrofGuesses == 0)
+                {
+                    Console.WriteLine("Game Over! The word was: " + selectedWord);
+                  
+                }
             }
             else
             {
                 Console.WriteLine("Good guess!");
             }
+
+        
             Console.WriteLine(string.Join(" ", guessedLetters));
             if (!guessedLetters.Contains('_'))
             {
